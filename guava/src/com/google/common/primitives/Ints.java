@@ -30,6 +30,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Random;
 import java.util.RandomAccess;
 import java.util.Spliterator;
 import java.util.Spliterators;
@@ -506,6 +507,49 @@ public final class Ints extends IntsMethodsForWeb {
     checkNotNull(array);
     checkPositionIndexes(fromIndex, toIndex, array.length);
     for (int i = fromIndex, j = toIndex - 1; i < j; i++, j--) {
+      int tmp = array[i];
+      array[i] = array[j];
+      array[j] = tmp;
+    }
+  }
+
+  /**
+   * Ramdomly shuffles the elements of {@code array}. This is equivalent to {@code
+   * Collections.shuffle(Ints.asList(array))}, but is likely to be more efficient.
+   *
+   * @param array an array of {@code int} values, possibly empty
+   */
+  public static void shuffle(int[] array) {
+    checkNotNull(array);
+    shuffle(array, 0, array.length, -1);
+  }
+
+  /**
+   * Ramdomly shuffles the  elements of {@code array} between {@code fromIndex} inclusive and {@code toIndex}
+   * exclusive. This is equivalent to {@code
+   * Collections.shuffle(Ints.asList(array).subList(fromIndex, toIndex))}, but is likely to be more
+   * efficient.
+   * 
+   * @param array an array of {@code int} values, possibly empty
+   * @param fromIndex the array index to start from (inclusive)
+   * @param toIndex the array index to end at (exclusive)
+   * @param seed the Random number generator seed to use or -1 for a random seed
+   * @throws IndexOutOfBoundsException if {@code fromIndex < 0}, {@code toIndex > array.length}, or
+   *     {@code toIndex > fromIndex}
+   */
+  public static void shuffle(int[] array, int fromIndex, int toIndex, long seed) {
+    checkNotNull(array);
+    checkPositionIndexes(fromIndex, toIndex, array.length);
+
+    Random random;
+    if (seed == -1) {
+      random = new Random();
+    } else {
+      random = new Random(seed);
+    }
+    
+    for (int i = fromIndex; i < toIndex - 1; i++) {
+      int j = random.nextInt(toIndex - i) + i;
       int tmp = array[i];
       array[i] = array[j];
       array[j] = tmp;
