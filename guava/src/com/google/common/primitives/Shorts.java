@@ -150,6 +150,19 @@ public final class Shorts extends ShortsMethodsForWeb {
     return indexOf(array, target, 0, array.length);
   }
 
+  /**
+   * Returns the index of the first appearance of the value {@code target} in {@code array} starting from {@code fromIndex}.
+   *
+   * @param array an array of {@code short} values, possibly empty
+   * @param target a primitive {@code short} value
+   * @param fromIndex the index to start from {@code array}
+   * @return the least index {@code i} for which {@code array[i] == target}, or {@code -1} if no
+   *     such index exists.
+   */
+  public static int indexOf(short[] array, short target, int fromIndex) {
+    return indexOf(array, target, fromIndex, array.length);
+  }
+
   // TODO(kevinb): consider making this public
   private static int indexOf(short[] array, short target, int start, int end) {
     for (int i = start; i < end; i++) {
@@ -190,6 +203,36 @@ public final class Shorts extends ShortsMethodsForWeb {
   }
 
   /**
+   * Returns the start position of the first occurrence of the specified {@code target} within
+   * {@code array} staring from {@code fromIndex}, or {@code -1} if there is no such occurrence.
+   *
+   * <p>More formally, returns the lowest index {@code i} such that {@code Arrays.copyOfRange(array,
+   * i, i + target.length)} contains exactly the same elements as {@code target}.
+   *
+   * @param array the array to search for the sequence {@code target}
+   * @param target the array to search for as a sub-sequence of {@code array}
+   * @param fromIndex the index to start from {@code array}
+   */
+  public static int indexOf(short[] array, short[] target, int fromIndex) {
+    checkNotNull(array, "array");
+    checkNotNull(target, "target");
+    if (target.length == 0) {
+      return 0;
+    }
+
+    outer:
+    for (int i = fromIndex; i < array.length - target.length + 1; i++) {
+      for (int j = 0; j < target.length; j++) {
+        if (array[i + j] != target[j]) {
+          continue outer;
+        }
+      }
+      return i;
+    }
+    return -1;
+  }
+
+  /**
    * Returns the index of the last appearance of the value {@code target} in {@code array}.
    *
    * @param array an array of {@code short} values, possibly empty
@@ -201,12 +244,55 @@ public final class Shorts extends ShortsMethodsForWeb {
     return lastIndexOf(array, target, 0, array.length);
   }
 
+  /**
+   * Returns the index of the last appearance of the value {@code target} in {@code array} starting from {@code fromIndex}.
+   *
+   * @param array an array of {@code short} values, possibly empty
+   * @param target a primitive {@code short} value
+   * @param fromIndex the index to start from {@code array}
+   * @return the greatest index {@code i} for which {@code array[i] == target}, or {@code -1} if no
+   *     such index exists.
+   */
+  public static int lastIndexOf(short[] array, short target, int fromIndex) {
+    return lastIndexOf(array, target, fromIndex, array.length);
+  }
+
   // TODO(kevinb): consider making this public
   private static int lastIndexOf(short[] array, short target, int start, int end) {
     for (int i = end - 1; i >= start; i--) {
       if (array[i] == target) {
         return i;
       }
+    }
+    return -1;
+  }
+
+  /**
+   * Returns the start position of the last occurrence of the specified {@code target} within
+   * {@code array} staring from {@code fromIndex}, or {@code -1} if there is no such occurrence.
+   *
+   * <p>More formally, returns the greatest index {@code i} such that {@code Arrays.copyOfRange(array,
+   * i, i + target.length)} contains exactly the same elements as {@code target}.
+   *
+   * @param array the array to search for the sequence {@code target}
+   * @param target the array to search for as a sub-sequence of {@code array}
+   * @param fromIndex the index to start from {@code array}
+   */
+  public static int lastIndexOf(short[] array, short[] target, int fromIndex) {
+    checkNotNull(array, "array");
+    checkNotNull(target, "target");
+    if (target.length == 0) {
+      return array.length;
+    }
+
+    outer:
+    for (int i = array.length - target.length; i >= fromIndex; i--) {
+      for (int j = 0; j < target.length; j++) {
+        if (array[i + j] != target[j]) {
+          continue outer;
+        }
+      }
+      return i;
     }
     return -1;
   }
