@@ -129,6 +129,14 @@ public class DoublesTest extends TestCase {
     assertEquals(-1, Doubles.indexOf(new double[] {5.0, NaN}, NaN));
   }
 
+  public void testIndexOf_fromIndex() {
+    assertEquals(-1, Doubles.indexOf(EMPTY, (double) 1, 0));
+    assertEquals(-1, Doubles.indexOf(EMPTY, (double) 2, 1));
+    assertEquals(0, Doubles.indexOf(ARRAY234, (double) 2, 0));
+    assertEquals(-1, Doubles.indexOf(ARRAY234, (double) 2, 1));
+    assertEquals(3, Doubles.indexOf(new double[] {(double) 2, (double) 3, (double) 2, (double) 3}, (double) 3), 2);
+  }
+
   public void testIndexOf_arrayTarget() {
     assertEquals(0, Doubles.indexOf(EMPTY, EMPTY));
     assertEquals(0, Doubles.indexOf(ARRAY234, EMPTY));
@@ -175,6 +183,14 @@ public class DoublesTest extends TestCase {
     assertEquals(-1, Doubles.indexOf(new double[] {5.0, NaN, NaN, 5.0}, new double[] {NaN, NaN}));
   }
 
+  public void testIndexOf_arrayTarget_fromIndex() {
+    assertEquals(0, Doubles.indexOf(EMPTY, EMPTY), 0);
+    assertEquals(0, Doubles.indexOf(ARRAY234, EMPTY), 2);
+    assertEquals(-1, Doubles.indexOf(ARRAY234, ARRAY1), 0);
+    assertEquals(1, Doubles.indexOf(ARRAY234, new double[] {(double) 3, (double) 4}, 1));
+    assertEquals(-1, Doubles.indexOf(ARRAY234, new double[] {(double) 3, (double) 4}, 2));
+  }
+
   public void testLastIndexOf() {
     assertEquals(-1, Doubles.lastIndexOf(EMPTY, (double) 1));
     assertEquals(-1, Doubles.lastIndexOf(ARRAY1, (double) 2));
@@ -192,6 +208,27 @@ public class DoublesTest extends TestCase {
       assertEquals("" + value, 0, Doubles.lastIndexOf(new double[] {value, 5.0}, value));
     }
     assertEquals(-1, Doubles.lastIndexOf(new double[] {NaN, 5.0}, NaN));
+  }
+
+  public void testLastIndexOf_fromIndex() {
+    assertEquals(-1, Doubles.lastIndexOf(EMPTY, (double) 1, 0));
+    assertEquals(-1, Doubles.lastIndexOf(ARRAY1, (double) 2, 1));
+    assertEquals(0, Doubles.lastIndexOf(ARRAY234, (double) 2), 0);
+    assertEquals(-1, Doubles.lastIndexOf(ARRAY234, (double) 2), 1);
+    assertEquals(
+      3, Doubles.lastIndexOf(new double[] {(double) 2, (double) 3, (double) 3}, (double) 3), 3);
+  }
+
+  public void testLastIndexOf_arrayTarget_fromIndex() {
+    assertEquals(0, Doubles.indexOf(EMPTY, EMPTY), 0);
+    assertEquals(0, Doubles.indexOf(ARRAY234, EMPTY), 2);
+    assertEquals(-1, Doubles.indexOf(ARRAY234, ARRAY1), 0);
+    assertEquals(1, Doubles.indexOf(ARRAY234, new double[] {(double) 3, (double) 4}, 1));
+    assertEquals(
+        3,
+        Doubles.lastIndexOf(
+            new double[] {(double) 2, (double) 3, (double) 4, (double) 2, (double) 3, (double) 4},
+            new double[] {(double) 2, (double) 3, (double) 4}, 3));
   }
 
   @GwtIncompatible

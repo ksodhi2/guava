@@ -89,6 +89,22 @@ public class BooleansTest extends TestCase {
     assertEquals(0, Booleans.indexOf(ARRAY_TRUE, new boolean[0]));
   }
 
+  public void testIndexOf_fromIndex() {
+    assertEquals(-1, Booleans.indexOf(EMPTY, true, 0));
+    assertEquals(-1, Booleans.indexOf(EMPTY, true, 1));
+    assertEquals(0, Booleans.indexOf(ARRAY_FALSE_TRUE, false, 0));
+    assertEquals(-1, Booleans.indexOf(ARRAY_FALSE_TRUE, false, 1));
+    assertEquals(4, Booleans.indexOf(new boolean[] {false, true, true, true, false}, false, 2));
+  }
+
+  public void testIndexOf_arrayTarget_fromIndex() {
+    assertEquals(0, Booleans.indexOf(EMPTY, EMPTY), 0);
+    assertEquals(0, Booleans.indexOf(ARRAY_FALSE_TRUE, EMPTY), 2);
+    assertEquals(1, Booleans.indexOf(ARRAY_FALSE_TRUE, ARRAY_TRUE), 0);
+    assertEquals(0, Booleans.indexOf(ARRAY_FALSE_TRUE, new boolean[] {false, true}, 0));
+    assertEquals(-1, Booleans.indexOf(ARRAY_FALSE_TRUE, new boolean[] {false, true}, 1));
+  }
+
   public void testIndexOf_arrays() {
     assertEquals(-1, Booleans.indexOf(EMPTY, false));
     assertEquals(-1, Booleans.indexOf(ARRAY_FALSE, true));
@@ -107,6 +123,24 @@ public class BooleansTest extends TestCase {
     assertEquals(0, Booleans.lastIndexOf(ARRAY_FALSE_TRUE, false));
     assertEquals(1, Booleans.lastIndexOf(ARRAY_FALSE_TRUE, true));
     assertEquals(2, Booleans.lastIndexOf(new boolean[] {false, true, true}, true));
+  }
+
+  public void testLastIndexOf_fromIndex() {
+    assertEquals(-1, Booleans.indexOf(EMPTY, true, 0));
+    assertEquals(-1, Booleans.indexOf(EMPTY, true, 1));
+    assertEquals(0, Booleans.indexOf(ARRAY_FALSE_TRUE, false, 0));
+    assertEquals(1, Booleans.indexOf(ARRAY_FALSE_FALSE, false, 1));
+  }
+
+  public void testLastIndexOf_arrayTarget_fromIndex() {
+    assertEquals(0, Booleans.indexOf(EMPTY, EMPTY), 0);
+    assertEquals(0, Booleans.indexOf(ARRAY_FALSE_FALSE, EMPTY), 1);
+    assertEquals(-1, Booleans.indexOf(ARRAY_FALSE_TRUE, ARRAY_FALSE), 1);
+    assertEquals(
+        5,
+        Booleans.lastIndexOf(
+            new boolean[] {true, false, true, true, false, true, false},
+            new boolean[] {true, false}, 2));
   }
 
   public void testConcat() {

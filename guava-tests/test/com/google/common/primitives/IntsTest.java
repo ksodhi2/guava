@@ -114,6 +114,14 @@ public class IntsTest extends TestCase {
     assertEquals(1, Ints.indexOf(new int[] {(int) 2, (int) 3, (int) 2, (int) 3}, (int) 3));
   }
 
+  public void testIndexOf_fromIndex() {
+    assertEquals(-1, Ints.indexOf(EMPTY, (int) 1, 0));
+    assertEquals(-1, Ints.indexOf(EMPTY, (int) 2, 1));
+    assertEquals(0, Ints.indexOf(ARRAY234, (int) 2, 0));
+    assertEquals(-1, Ints.indexOf(ARRAY234, (int) 2, 1));
+    assertEquals(3, Ints.indexOf(new int[] {(int) 2, (int) 3, (int) 2, (int) 3}, (int) 3), 2);
+  }
+
   public void testIndexOf_arrayTarget() {
     assertEquals(0, Ints.indexOf(EMPTY, EMPTY));
     assertEquals(0, Ints.indexOf(ARRAY234, EMPTY));
@@ -144,6 +152,14 @@ public class IntsTest extends TestCase {
         Ints.indexOf(new int[] {(int) 4, (int) 3, (int) 2}, new int[] {(int) 2, (int) 3, (int) 4}));
   }
 
+  public void testIndexOf_arrayTarget_fromIndex() {
+    assertEquals(0, Ints.indexOf(EMPTY, EMPTY), 0);
+    assertEquals(0, Ints.indexOf(ARRAY234, EMPTY), 2);
+    assertEquals(-1, Ints.indexOf(ARRAY234, ARRAY1), 0);
+    assertEquals(1, Ints.indexOf(ARRAY234, new int[] {(int) 3, (int) 4}, 1));
+    assertEquals(-1, Ints.indexOf(ARRAY234, new int[] {(int) 3, (int) 4}, 2));
+  }
+
   public void testLastIndexOf() {
     assertEquals(-1, Ints.lastIndexOf(EMPTY, (int) 1));
     assertEquals(-1, Ints.lastIndexOf(ARRAY1, (int) 2));
@@ -153,6 +169,27 @@ public class IntsTest extends TestCase {
     assertEquals(1, Ints.lastIndexOf(ARRAY234, (int) 3));
     assertEquals(2, Ints.lastIndexOf(ARRAY234, (int) 4));
     assertEquals(3, Ints.lastIndexOf(new int[] {(int) 2, (int) 3, (int) 2, (int) 3}, (int) 3));
+  }
+
+  public void testLastIndexOf_fromIndex() {
+    assertEquals(-1, Ints.lastIndexOf(EMPTY, (int) 1, 0));
+    assertEquals(-1, Ints.lastIndexOf(ARRAY1, (int) 2, 1));
+    assertEquals(0, Ints.lastIndexOf(ARRAY234, (int) 2), 0);
+    assertEquals(-1, Ints.lastIndexOf(ARRAY234, (int) 2), 1);
+    assertEquals(
+      3, Ints.lastIndexOf(new int[] {(int) 2, (int) 3, (int) 3}, (int) 3), 3);
+  }
+
+  public void testLastIndexOf_arrayTarget_fromIndex() {
+    assertEquals(0, Ints.indexOf(EMPTY, EMPTY), 0);
+    assertEquals(0, Ints.indexOf(ARRAY234, EMPTY), 2);
+    assertEquals(-1, Ints.indexOf(ARRAY234, ARRAY1), 0);
+    assertEquals(1, Ints.indexOf(ARRAY234, new int[] {(int) 3, (int) 4}, 1));
+    assertEquals(
+        3,
+        Ints.lastIndexOf(
+            new int[] {(int) 2, (int) 3, (int) 4, (int) 2, (int) 3, (int) 4},
+            new int[] {(int) 2, (int) 3, (int) 4}, 3));
   }
 
   @GwtIncompatible

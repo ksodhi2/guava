@@ -125,6 +125,14 @@ public class ShortsTest extends TestCase {
         1, Shorts.indexOf(new short[] {(short) 2, (short) 3, (short) 2, (short) 3}, (short) 3));
   }
 
+  public void testIndexOf_fromIndex() {
+    assertEquals(-1, Shorts.indexOf(EMPTY, (short) 1, 0));
+    assertEquals(-1, Shorts.indexOf(EMPTY, (short) 2, 1));
+    assertEquals(0, Shorts.indexOf(ARRAY234, (short) 2, 0));
+    assertEquals(-1, Shorts.indexOf(ARRAY234, (short) 2, 1));
+    assertEquals(3, Shorts.indexOf(new short[] {(short) 2, (short) 3, (short) 2, (short) 3}, (short) 3), 2);
+  }
+
   public void testIndexOf_arrayTarget() {
     assertEquals(0, Shorts.indexOf(EMPTY, EMPTY));
     assertEquals(0, Shorts.indexOf(ARRAY234, EMPTY));
@@ -163,6 +171,14 @@ public class ShortsTest extends TestCase {
             new short[] {(short) 2, (short) 3, (short) 4}));
   }
 
+  public void testIndexOf_arrayTarget_fromIndex() {
+    assertEquals(0, Shorts.indexOf(EMPTY, EMPTY), 0);
+    assertEquals(0, Shorts.indexOf(ARRAY234, EMPTY), 2);
+    assertEquals(-1, Shorts.indexOf(ARRAY234, ARRAY1), 0);
+    assertEquals(1, Shorts.indexOf(ARRAY234, new short[] {(short) 3, (short) 4}, 1));
+    assertEquals(-1, Shorts.indexOf(ARRAY234, new short[] {(short) 3, (short) 4}, 2));
+  }
+
   public void testLastIndexOf() {
     assertEquals(-1, Shorts.lastIndexOf(EMPTY, (short) 1));
     assertEquals(-1, Shorts.lastIndexOf(ARRAY1, (short) 2));
@@ -173,6 +189,27 @@ public class ShortsTest extends TestCase {
     assertEquals(2, Shorts.lastIndexOf(ARRAY234, (short) 4));
     assertEquals(
         3, Shorts.lastIndexOf(new short[] {(short) 2, (short) 3, (short) 2, (short) 3}, (short) 3));
+  }
+
+  public void testLastIndexOf_fromIndex() {
+    assertEquals(-1, Shorts.lastIndexOf(EMPTY, (short) 1, 0));
+    assertEquals(-1, Shorts.lastIndexOf(ARRAY1, (short) 2, 1));
+    assertEquals(0, Shorts.lastIndexOf(ARRAY234, (short) 2), 0);
+    assertEquals(-1, Shorts.lastIndexOf(ARRAY234, (short) 2), 1);
+    assertEquals(
+      3, Shorts.lastIndexOf(new short[] {(short) 2, (short) 3, (short) 3}, (short) 3), 3);
+  }
+
+  public void testLastIndexOf_arrayTarget_fromIndex() {
+    assertEquals(0, Shorts.indexOf(EMPTY, EMPTY), 0);
+    assertEquals(0, Shorts.indexOf(ARRAY234, EMPTY), 2);
+    assertEquals(-1, Shorts.indexOf(ARRAY234, ARRAY1), 0);
+    assertEquals(1, Shorts.indexOf(ARRAY234, new short[] {(short) 3, (short) 4}, 1));
+    assertEquals(
+        3,
+        Shorts.lastIndexOf(
+            new short[] {(short) 2, (short) 3, (short) 4, (short) 2, (short) 3, (short) 4},
+            new short[] {(short) 2, (short) 3, (short) 4}, 3));
   }
 
   @GwtIncompatible

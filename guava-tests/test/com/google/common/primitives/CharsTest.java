@@ -113,6 +113,14 @@ public class CharsTest extends TestCase {
     assertEquals(1, Chars.indexOf(new char[] {(char) 2, (char) 3, (char) 2, (char) 3}, (char) 3));
   }
 
+  public void testIndexOf_fromIndex() {
+    assertEquals(-1, Chars.indexOf(EMPTY, (char) 1, 0));
+    assertEquals(-1, Chars.indexOf(EMPTY, (char) 2, 1));
+    assertEquals(0, Chars.indexOf(ARRAY234, (char) 2, 0));
+    assertEquals(-1, Chars.indexOf(ARRAY234, (char) 2, 1));
+    assertEquals(3, Chars.indexOf(new char[] {(char) 2, (char) 3, (char) 2, (char) 3}, (char) 3), 2);
+  }
+
   public void testIndexOf_arrayTarget() {
     assertEquals(0, Chars.indexOf(EMPTY, EMPTY));
     assertEquals(0, Chars.indexOf(ARRAY234, EMPTY));
@@ -145,6 +153,14 @@ public class CharsTest extends TestCase {
             new char[] {(char) 4, (char) 3, (char) 2}, new char[] {(char) 2, (char) 3, (char) 4}));
   }
 
+  public void testIndexOf_arrayTarget_fromIndex() {
+    assertEquals(0, Chars.indexOf(EMPTY, EMPTY), 0);
+    assertEquals(0, Chars.indexOf(ARRAY234, EMPTY), 2);
+    assertEquals(-1, Chars.indexOf(ARRAY234, ARRAY1), 0);
+    assertEquals(1, Chars.indexOf(ARRAY234, new char[] {(char) 3, (char) 4}, 1));
+    assertEquals(-1, Chars.indexOf(ARRAY234, new char[] {(char) 3, (char) 4}, 2));
+  }
+
   public void testLastIndexOf() {
     assertEquals(-1, Chars.lastIndexOf(EMPTY, (char) 1));
     assertEquals(-1, Chars.lastIndexOf(ARRAY1, (char) 2));
@@ -155,6 +171,27 @@ public class CharsTest extends TestCase {
     assertEquals(2, Chars.lastIndexOf(ARRAY234, (char) 4));
     assertEquals(
         3, Chars.lastIndexOf(new char[] {(char) 2, (char) 3, (char) 2, (char) 3}, (char) 3));
+  }
+
+  public void testLastIndexOf_fromIndex() {
+    assertEquals(-1, Chars.lastIndexOf(EMPTY, (char) 1, 0));
+    assertEquals(-1, Chars.lastIndexOf(ARRAY1, (char) 2, 1));
+    assertEquals(0, Chars.lastIndexOf(ARRAY234, (char) 2), 0);
+    assertEquals(-1, Chars.lastIndexOf(ARRAY234, (char) 2), 1);
+    assertEquals(
+      3, Chars.lastIndexOf(new char[] {(char) 2, (char) 3, (char) 3}, (char) 3), 3);
+  }
+
+  public void testLastIndexOf_arrayTarget_fromIndex() {
+    assertEquals(0, Chars.indexOf(EMPTY, EMPTY), 0);
+    assertEquals(0, Chars.indexOf(ARRAY234, EMPTY), 2);
+    assertEquals(-1, Chars.indexOf(ARRAY234, ARRAY1), 0);
+    assertEquals(1, Chars.indexOf(ARRAY234, new char[] {(char) 3, (char) 4}, 1));
+    assertEquals(
+        3,
+        Chars.lastIndexOf(
+            new char[] {(char) 2, (char) 3, (char) 4, (char) 2, (char) 3, (char) 4},
+            new char[] {(char) 2, (char) 3, (char) 4}, 3));
   }
 
   public void testMax_noArgs() {
