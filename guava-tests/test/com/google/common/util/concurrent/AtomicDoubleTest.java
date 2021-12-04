@@ -13,6 +13,9 @@
 
 package com.google.common.util.concurrent;
 
+import java.util.function.DoubleBinaryOperator;
+import java.util.function.DoubleUnaryOperator;
+import java.util.function.UnaryOperator;
 
 /** Unit test for {@link AtomicDouble}. */
 public class AtomicDoubleTest extends JSR166TestCase {
@@ -160,6 +163,58 @@ public class AtomicDoubleTest extends JSR166TestCase {
       for (double y : VALUES) {
         AtomicDouble a = new AtomicDouble(x);
         double z = a.addAndGet(y);
+        assertBitEquals(x + y, z);
+        assertBitEquals(x + y, a.get());
+      }
+    }
+  }
+
+  /** getAndUpdate returns previous value and applies a unary sum operation with the given value */
+  public void testGetAndUpdate() {
+    for (double x : VALUES) {
+      for (double y : VALUES) {
+        DoubleUnaryOperator sumNums = (v) -> v + y;
+        AtomicDouble a = new AtomicDouble(x);
+        double z = a.getAndUpdate(sumNums);
+        assertBitEquals(x, z);
+        assertBitEquals(x + y, a.get());
+      }
+    }
+  }
+
+  /** updateAndGet applies a unary sum operation with the given value, and returns current value */
+  public void testUpdateAndGet() {
+    for (double x : VALUES) {
+      for (double y : VALUES) {
+        DoubleUnaryOperator sumNums = (v) -> v + y;
+        AtomicDouble a = new AtomicDouble(x);
+        double z = a.updateAndGet(sumNums);
+        assertBitEquals(x + y, z);
+        assertBitEquals(x + y, a.get());
+      }
+    }
+  }
+
+  /** getAndAccumulate returns previous value and applies a binary sum operation with the given value */
+  public void testGetAndAccumulate() {
+    for (double x : VALUES) {
+      for (double y : VALUES) {
+        DoubleBinaryOperator sumNums = (m, n) -> m + n;
+        AtomicDouble a = new AtomicDouble(x);
+        double z = a.getAndAccumulate(y, sumNums);
+        assertBitEquals(x, z);
+        assertBitEquals(x + y, a.get());
+      }
+    }
+  }
+
+  /** accumulateAndGet applies a binary sum operation with the given value, and returns current value */
+  public void testAccumulateAndGet() {
+    for (double x : VALUES) {
+      for (double y : VALUES) {
+        DoubleBinaryOperator sumNums = (m, n) -> m + n;
+        AtomicDouble a = new AtomicDouble(x);
+        double z = a.accumulateAndGet(y, sumNums);
         assertBitEquals(x + y, z);
         assertBitEquals(x + y, a.get());
       }
