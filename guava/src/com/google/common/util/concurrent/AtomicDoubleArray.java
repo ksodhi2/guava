@@ -205,6 +205,7 @@ public class AtomicDoubleArray implements java.io.Serializable {
   }
 
   /**
+   * CS427 Issue link: https://github.com/google/guava/issues/5742
    * Atomically applies the given operation to the element at index {@code i}.
    *
    * @param i the index
@@ -225,6 +226,7 @@ public class AtomicDoubleArray implements java.io.Serializable {
   }
 
   /**
+   * CS427 Issue link: https://github.com/google/guava/issues/5742
    * Atomically applies the given operation to the element at index {@code i}.
    *
    * @param i the index
@@ -245,6 +247,7 @@ public class AtomicDoubleArray implements java.io.Serializable {
   }
 
   /**
+   * CS427 Issue link: https://github.com/google/guava/issues/5742
    * Atomically applies the given operation with the given value to the element at index {@code i}.
    *
    * @param i the index
@@ -266,6 +269,7 @@ public class AtomicDoubleArray implements java.io.Serializable {
   }
 
   /**
+   * CS427 Issue link: https://github.com/google/guava/issues/5742
    * Atomically applies the given operation with the given value to the element at index {@code i}.
    *
    * @param i the index

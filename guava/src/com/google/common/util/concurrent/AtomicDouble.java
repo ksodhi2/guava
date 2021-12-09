@@ -188,6 +188,7 @@ public class AtomicDouble extends Number implements java.io.Serializable {
   }
 
   /**
+   * CS427 Issue link: https://github.com/google/guava/issues/5742
    * Atomically applies the given operation to the current value.
    *
    * @param updateFunction the operation to apply to the value
@@ -207,6 +208,7 @@ public class AtomicDouble extends Number implements java.io.Serializable {
   }
 
   /**
+   * CS427 Issue link: https://github.com/google/guava/issues/5742
    * Atomically applies the given operation to the current value.
    *
    * @param updateFunction the operation to apply to the value
@@ -226,6 +228,7 @@ public class AtomicDouble extends Number implements java.io.Serializable {
   }
 
   /**
+   * CS427 Issue link: https://github.com/google/guava/issues/5742
    * Atomically applies the given operation with the given value to the current value.
    *
    * @param x the value to be used for the given operation
@@ -246,6 +249,7 @@ public class AtomicDouble extends Number implements java.io.Serializable {
   }
 
   /**
+   * CS427 Issue link: https://github.com/google/guava/issues/5742
    * Atomically applies the given operation with the given value to the current value.
    *
    * @param x the value to be used for the given operation

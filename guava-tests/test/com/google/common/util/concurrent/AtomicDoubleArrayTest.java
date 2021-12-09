@@ -263,6 +263,7 @@ public class AtomicDoubleArrayTest extends JSR166TestCase {
     }
   }
 
+  /** CS427 Issue link: https://github.com/google/guava/issues/5742 */
   /** getAndUpdate returns previous value and applies a unary sum operation with the given value */
   public void testGetAndUpdate() {
     AtomicDoubleArray aa = new AtomicDoubleArray(SIZE);
@@ -279,6 +280,7 @@ public class AtomicDoubleArrayTest extends JSR166TestCase {
     }
   }
 
+  /** CS427 Issue link: https://github.com/google/guava/issues/5742 */
   /** updateAndGet applies a unary sum operation with the given value, and returns current value */
   public void testUpdateAndGet() {
     AtomicDoubleArray aa = new AtomicDoubleArray(SIZE);
@@ -295,6 +297,7 @@ public class AtomicDoubleArrayTest extends JSR166TestCase {
     }
   }
 
+  /** CS427 Issue link: https://github.com/google/guava/issues/5742 */
   /** getAndAccumulate returns previous value and applies a binary sum operation with the given value */
   public void testGetAndAccumulate() {
     AtomicDoubleArray aa = new AtomicDoubleArray(SIZE);
@@ -311,6 +314,7 @@ public class AtomicDoubleArrayTest extends JSR166TestCase {
     }
   }
 
+  /** CS427 Issue link: https://github.com/google/guava/issues/5742 */
   /** accumulateAndGet applies a binary sum operation with the given value, and returns current value */
   public void testAccumulateAndGet() {
     AtomicDoubleArray aa = new AtomicDoubleArray(SIZE);
