@@ -372,24 +372,28 @@ public class IntsTest extends TestCase {
     testReverse(new int[] {-1, 1, -2, 2}, 1, 3, new int[] {-1, -2, 1, 2});
   }
 
+  // CS427 Issue link: https://github.com/google/guava/issues/3555
   public void testShuffle() {
     testShuffle(new int[] {}, new int[] {});
     testShuffle(new int[] {1}, new int[] {1});
     testShuffle(new int[] {22}, new int[] {22});
   }
 
+  // CS427 Issue link: https://github.com/google/guava/issues/3555
   private static void testShuffle(int[] input, int[] expectedOutput) {
     input = Arrays.copyOf(input, input.length);
     Ints.shuffle(input);
     assertTrue(Arrays.equals(expectedOutput, input));
   }
 
+  // CS427 Issue link: https://github.com/google/guava/issues/3555
   private static void testShuffle(int[] input, int fromIndex, int toIndex, long seed, int[] expectedOutput) {
     input = Arrays.copyOf(input, input.length);
     Ints.shuffle(input, fromIndex, toIndex, seed);
     assertTrue(Arrays.equals(expectedOutput, input));
   }
 
+  // CS427 Issue link: https://github.com/google/guava/issues/3555
   public void testShuffleIndexed() {
     testShuffle(new int[] {}, 0, 0, 3, new int[] {});
     testShuffle(new int[] {1}, 0, 1, 3, new int[] {1});

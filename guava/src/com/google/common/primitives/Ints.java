@@ -600,6 +600,7 @@ public final class Ints extends IntsMethodsForWeb {
   }
 
   /**
+   * CS427 Issue link: https://github.com/google/guava/issues/3555
    * Ramdomly shuffles the elements of {@code array}. This is equivalent to {@code
    * Collections.shuffle(Ints.asList(array))}, but is likely to be more efficient.
    *
@@ -611,6 +612,7 @@ public final class Ints extends IntsMethodsForWeb {
   }
 
   /**
+   * CS427 Issue link: https://github.com/google/guava/issues/3555
    * Ramdomly shuffles the  elements of {@code array} between {@code fromIndex} inclusive and {@code toIndex}
    * exclusive. This is equivalent to {@code
    * Collections.shuffle(Ints.asList(array).subList(fromIndex, toIndex))}, but is likely to be more
