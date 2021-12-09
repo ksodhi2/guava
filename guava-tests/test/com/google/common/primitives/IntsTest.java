@@ -114,6 +114,7 @@ public class IntsTest extends TestCase {
     assertEquals(1, Ints.indexOf(new int[] {(int) 2, (int) 3, (int) 2, (int) 3}, (int) 3));
   }
 
+  // CS427 Issue link: https://github.com/google/guava/issues/3720
   public void testIndexOf_fromIndex() {
     assertEquals(-1, Ints.indexOf(EMPTY, (int) 1, 0));
     assertEquals(-1, Ints.indexOf(EMPTY, (int) 2, 1));
@@ -152,6 +153,7 @@ public class IntsTest extends TestCase {
         Ints.indexOf(new int[] {(int) 4, (int) 3, (int) 2}, new int[] {(int) 2, (int) 3, (int) 4}));
   }
 
+  // CS427 Issue link: https://github.com/google/guava/issues/3720
   public void testIndexOf_arrayTarget_fromIndex() {
     assertEquals(0, Ints.indexOf(EMPTY, EMPTY), 0);
     assertEquals(0, Ints.indexOf(ARRAY234, EMPTY), 2);
@@ -171,6 +173,7 @@ public class IntsTest extends TestCase {
     assertEquals(3, Ints.lastIndexOf(new int[] {(int) 2, (int) 3, (int) 2, (int) 3}, (int) 3));
   }
 
+  // CS427 Issue link: https://github.com/google/guava/issues/3720
   public void testLastIndexOf_fromIndex() {
     assertEquals(-1, Ints.lastIndexOf(EMPTY, (int) 1, 0));
     assertEquals(-1, Ints.lastIndexOf(ARRAY1, (int) 2, 1));
@@ -180,6 +183,7 @@ public class IntsTest extends TestCase {
       3, Ints.lastIndexOf(new int[] {(int) 2, (int) 3, (int) 3}, (int) 3), 3);
   }
 
+  // CS427 Issue link: https://github.com/google/guava/issues/3720
   public void testLastIndexOf_arrayTarget_fromIndex() {
     assertEquals(0, Ints.indexOf(EMPTY, EMPTY), 0);
     assertEquals(0, Ints.indexOf(ARRAY234, EMPTY), 2);

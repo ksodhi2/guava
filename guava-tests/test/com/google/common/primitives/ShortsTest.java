@@ -125,6 +125,7 @@ public class ShortsTest extends TestCase {
         1, Shorts.indexOf(new short[] {(short) 2, (short) 3, (short) 2, (short) 3}, (short) 3));
   }
 
+  // CS427 Issue link: https://github.com/google/guava/issues/3720
   public void testIndexOf_fromIndex() {
     assertEquals(-1, Shorts.indexOf(EMPTY, (short) 1, 0));
     assertEquals(-1, Shorts.indexOf(EMPTY, (short) 2, 1));
@@ -171,6 +172,7 @@ public class ShortsTest extends TestCase {
             new short[] {(short) 2, (short) 3, (short) 4}));
   }
 
+  // CS427 Issue link: https://github.com/google/guava/issues/3720
   public void testIndexOf_arrayTarget_fromIndex() {
     assertEquals(0, Shorts.indexOf(EMPTY, EMPTY), 0);
     assertEquals(0, Shorts.indexOf(ARRAY234, EMPTY), 2);
@@ -191,6 +193,7 @@ public class ShortsTest extends TestCase {
         3, Shorts.lastIndexOf(new short[] {(short) 2, (short) 3, (short) 2, (short) 3}, (short) 3));
   }
 
+  // CS427 Issue link: https://github.com/google/guava/issues/3720
   public void testLastIndexOf_fromIndex() {
     assertEquals(-1, Shorts.lastIndexOf(EMPTY, (short) 1, 0));
     assertEquals(-1, Shorts.lastIndexOf(ARRAY1, (short) 2, 1));
@@ -200,6 +203,7 @@ public class ShortsTest extends TestCase {
       3, Shorts.lastIndexOf(new short[] {(short) 2, (short) 3, (short) 3}, (short) 3), 3);
   }
 
+  // CS427 Issue link: https://github.com/google/guava/issues/3720
   public void testLastIndexOf_arrayTarget_fromIndex() {
     assertEquals(0, Shorts.indexOf(EMPTY, EMPTY), 0);
     assertEquals(0, Shorts.indexOf(ARRAY234, EMPTY), 2);

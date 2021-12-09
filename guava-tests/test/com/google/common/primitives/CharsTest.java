@@ -113,6 +113,7 @@ public class CharsTest extends TestCase {
     assertEquals(1, Chars.indexOf(new char[] {(char) 2, (char) 3, (char) 2, (char) 3}, (char) 3));
   }
 
+  // CS427 Issue link: https://github.com/google/guava/issues/3720
   public void testIndexOf_fromIndex() {
     assertEquals(-1, Chars.indexOf(EMPTY, (char) 1, 0));
     assertEquals(-1, Chars.indexOf(EMPTY, (char) 2, 1));
@@ -153,6 +154,7 @@ public class CharsTest extends TestCase {
             new char[] {(char) 4, (char) 3, (char) 2}, new char[] {(char) 2, (char) 3, (char) 4}));
   }
 
+  // CS427 Issue link: https://github.com/google/guava/issues/3720
   public void testIndexOf_arrayTarget_fromIndex() {
     assertEquals(0, Chars.indexOf(EMPTY, EMPTY), 0);
     assertEquals(0, Chars.indexOf(ARRAY234, EMPTY), 2);
@@ -173,6 +175,7 @@ public class CharsTest extends TestCase {
         3, Chars.lastIndexOf(new char[] {(char) 2, (char) 3, (char) 2, (char) 3}, (char) 3));
   }
 
+  // CS427 Issue link: https://github.com/google/guava/issues/3720
   public void testLastIndexOf_fromIndex() {
     assertEquals(-1, Chars.lastIndexOf(EMPTY, (char) 1, 0));
     assertEquals(-1, Chars.lastIndexOf(ARRAY1, (char) 2, 1));
@@ -182,6 +185,7 @@ public class CharsTest extends TestCase {
       3, Chars.lastIndexOf(new char[] {(char) 2, (char) 3, (char) 3}, (char) 3), 3);
   }
 
+  // CS427 Issue link: https://github.com/google/guava/issues/3720
   public void testLastIndexOf_arrayTarget_fromIndex() {
     assertEquals(0, Chars.indexOf(EMPTY, EMPTY), 0);
     assertEquals(0, Chars.indexOf(ARRAY234, EMPTY), 2);

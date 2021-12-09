@@ -129,6 +129,7 @@ public class DoublesTest extends TestCase {
     assertEquals(-1, Doubles.indexOf(new double[] {5.0, NaN}, NaN));
   }
 
+  // CS427 Issue link: https://github.com/google/guava/issues/3720
   public void testIndexOf_fromIndex() {
     assertEquals(-1, Doubles.indexOf(EMPTY, (double) 1, 0));
     assertEquals(-1, Doubles.indexOf(EMPTY, (double) 2, 1));
@@ -183,6 +184,7 @@ public class DoublesTest extends TestCase {
     assertEquals(-1, Doubles.indexOf(new double[] {5.0, NaN, NaN, 5.0}, new double[] {NaN, NaN}));
   }
 
+  // CS427 Issue link: https://github.com/google/guava/issues/3720
   public void testIndexOf_arrayTarget_fromIndex() {
     assertEquals(0, Doubles.indexOf(EMPTY, EMPTY), 0);
     assertEquals(0, Doubles.indexOf(ARRAY234, EMPTY), 2);
@@ -210,6 +212,7 @@ public class DoublesTest extends TestCase {
     assertEquals(-1, Doubles.lastIndexOf(new double[] {NaN, 5.0}, NaN));
   }
 
+  // CS427 Issue link: https://github.com/google/guava/issues/3720
   public void testLastIndexOf_fromIndex() {
     assertEquals(-1, Doubles.lastIndexOf(EMPTY, (double) 1, 0));
     assertEquals(-1, Doubles.lastIndexOf(ARRAY1, (double) 2, 1));
@@ -219,6 +222,7 @@ public class DoublesTest extends TestCase {
       3, Doubles.lastIndexOf(new double[] {(double) 2, (double) 3, (double) 3}, (double) 3), 3);
   }
 
+  // CS427 Issue link: https://github.com/google/guava/issues/3720
   public void testLastIndexOf_arrayTarget_fromIndex() {
     assertEquals(0, Doubles.indexOf(EMPTY, EMPTY), 0);
     assertEquals(0, Doubles.indexOf(ARRAY234, EMPTY), 2);

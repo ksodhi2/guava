@@ -66,6 +66,7 @@ public class BytesTest extends TestCase {
     assertEquals(1, Bytes.indexOf(new byte[] {(byte) 2, (byte) 3, (byte) 2, (byte) 3}, (byte) 3));
   }
 
+  // CS427 Issue link: https://github.com/google/guava/issues/3720
   public void testIndexOf_fromIndex() {
     assertEquals(-1, Bytes.indexOf(EMPTY, (byte) 1, 0));
     assertEquals(-1, Bytes.indexOf(EMPTY, (byte) 2, 1));
@@ -106,6 +107,7 @@ public class BytesTest extends TestCase {
             new byte[] {(byte) 4, (byte) 3, (byte) 2}, new byte[] {(byte) 2, (byte) 3, (byte) 4}));
   }
 
+  // CS427 Issue link: https://github.com/google/guava/issues/3720
   public void testIndexOf_arrayTarget_fromIndex() {
     assertEquals(0, Bytes.indexOf(EMPTY, EMPTY), 0);
     assertEquals(0, Bytes.indexOf(ARRAY234, EMPTY), 2);
@@ -126,6 +128,7 @@ public class BytesTest extends TestCase {
         3, Bytes.lastIndexOf(new byte[] {(byte) 2, (byte) 3, (byte) 2, (byte) 3}, (byte) 3));
   }
 
+  // CS427 Issue link: https://github.com/google/guava/issues/3720
   public void testLastIndexOf_fromIndex() {
     assertEquals(-1, Bytes.lastIndexOf(EMPTY, (byte) 1, 0));
     assertEquals(-1, Bytes.lastIndexOf(ARRAY1, (byte) 2, 1));
@@ -135,6 +138,7 @@ public class BytesTest extends TestCase {
       3, Bytes.lastIndexOf(new byte[] {(byte) 2, (byte) 3, (byte) 3}, (byte) 3), 3);
   }
 
+  // CS427 Issue link: https://github.com/google/guava/issues/3720
   public void testLastIndexOf_arrayTarget_fromIndex() {
     assertEquals(0, Bytes.indexOf(EMPTY, EMPTY), 0);
     assertEquals(0, Bytes.indexOf(ARRAY234, EMPTY), 2);

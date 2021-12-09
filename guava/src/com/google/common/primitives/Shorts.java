@@ -151,6 +151,7 @@ public final class Shorts extends ShortsMethodsForWeb {
   }
 
   /**
+   * CS427 Issue link: https://github.com/google/guava/issues/3720
    * Returns the index of the first appearance of the value {@code target} in {@code array} starting from {@code fromIndex}.
    *
    * @param array an array of {@code short} values, possibly empty
@@ -203,6 +204,7 @@ public final class Shorts extends ShortsMethodsForWeb {
   }
 
   /**
+   * CS427 Issue link: https://github.com/google/guava/issues/3720
    * Returns the start position of the first occurrence of the specified {@code target} within
    * {@code array} staring from {@code fromIndex}, or {@code -1} if there is no such occurrence.
    *
@@ -245,6 +247,7 @@ public final class Shorts extends ShortsMethodsForWeb {
   }
 
   /**
+   * CS427 Issue link: https://github.com/google/guava/issues/3720
    * Returns the index of the last appearance of the value {@code target} in {@code array} starting from {@code fromIndex}.
    *
    * @param array an array of {@code short} values, possibly empty
@@ -268,6 +271,7 @@ public final class Shorts extends ShortsMethodsForWeb {
   }
 
   /**
+   * CS427 Issue link: https://github.com/google/guava/issues/3720
    * Returns the start position of the last occurrence of the specified {@code target} within
    * {@code array} staring from {@code fromIndex}, or {@code -1} if there is no such occurrence.
    *

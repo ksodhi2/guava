@@ -123,6 +123,7 @@ public class FloatsTest extends TestCase {
     assertEquals(-1, Floats.indexOf(new float[] {5f, NaN}, NaN));
   }
 
+  // CS427 Issue link: https://github.com/google/guava/issues/3720
   public void testIndexOf_fromIndex() {
     assertEquals(-1, Floats.indexOf(EMPTY, (float) 1, 0));
     assertEquals(-1, Floats.indexOf(EMPTY, (float) 2, 1));
@@ -177,6 +178,7 @@ public class FloatsTest extends TestCase {
     assertEquals(-1, Floats.indexOf(new float[] {5f, NaN, NaN, 5f}, new float[] {NaN, NaN}));
   }
 
+  // CS427 Issue link: https://github.com/google/guava/issues/3720
   public void testIndexOf_arrayTarget_fromIndex() {
     assertEquals(0, Floats.indexOf(EMPTY, EMPTY), 0);
     assertEquals(0, Floats.indexOf(ARRAY234, EMPTY), 2);
@@ -202,6 +204,7 @@ public class FloatsTest extends TestCase {
     assertEquals(-1, Floats.lastIndexOf(new float[] {NaN, 5f}, NaN));
   }
 
+  // CS427 Issue link: https://github.com/google/guava/issues/3720
   public void testLastIndexOf_fromIndex() {
     assertEquals(-1, Floats.lastIndexOf(EMPTY, (float) 1, 0));
     assertEquals(-1, Floats.lastIndexOf(ARRAY1, (float) 2, 1));
@@ -211,6 +214,7 @@ public class FloatsTest extends TestCase {
       3, Floats.lastIndexOf(new float[] {(float) 2, (float) 3, (float) 3}, (float) 3), 3);
   }
 
+  // CS427 Issue link: https://github.com/google/guava/issues/3720
   public void testLastIndexOf_arrayTarget_fromIndex() {
     assertEquals(0, Floats.indexOf(EMPTY, EMPTY), 0);
     assertEquals(0, Floats.indexOf(ARRAY234, EMPTY), 2);

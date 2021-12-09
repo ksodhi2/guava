@@ -89,6 +89,7 @@ public class BooleansTest extends TestCase {
     assertEquals(0, Booleans.indexOf(ARRAY_TRUE, new boolean[0]));
   }
 
+  // CS427 Issue link: https://github.com/google/guava/issues/3720
   public void testIndexOf_fromIndex() {
     assertEquals(-1, Booleans.indexOf(EMPTY, true, 0));
     assertEquals(-1, Booleans.indexOf(EMPTY, true, 1));
@@ -97,6 +98,7 @@ public class BooleansTest extends TestCase {
     assertEquals(4, Booleans.indexOf(new boolean[] {false, true, true, true, false}, false, 2));
   }
 
+  // CS427 Issue link: https://github.com/google/guava/issues/3720
   public void testIndexOf_arrayTarget_fromIndex() {
     assertEquals(0, Booleans.indexOf(EMPTY, EMPTY), 0);
     assertEquals(0, Booleans.indexOf(ARRAY_FALSE_TRUE, EMPTY), 2);
@@ -125,6 +127,7 @@ public class BooleansTest extends TestCase {
     assertEquals(2, Booleans.lastIndexOf(new boolean[] {false, true, true}, true));
   }
 
+  // CS427 Issue link: https://github.com/google/guava/issues/3720
   public void testLastIndexOf_fromIndex() {
     assertEquals(-1, Booleans.indexOf(EMPTY, true, 0));
     assertEquals(-1, Booleans.indexOf(EMPTY, true, 1));
@@ -132,6 +135,7 @@ public class BooleansTest extends TestCase {
     assertEquals(1, Booleans.indexOf(ARRAY_FALSE_FALSE, false, 1));
   }
 
+  // CS427 Issue link: https://github.com/google/guava/issues/3720
   public void testLastIndexOf_arrayTarget_fromIndex() {
     assertEquals(0, Booleans.indexOf(EMPTY, EMPTY), 0);
     assertEquals(0, Booleans.indexOf(ARRAY_FALSE_FALSE, EMPTY), 1);
